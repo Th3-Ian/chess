@@ -67,7 +67,8 @@ class Board
     piece.each { |pos, sym| @board[pos.first][pos.last] = " #{sym.symbol} " }
   end
 
-  Pawn.movement([1, 1], @board)
+  Pawn.movement(@board, [1, 1])
+
 end
 
 new_game = Board.new

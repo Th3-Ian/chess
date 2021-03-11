@@ -6,11 +6,10 @@ class Pawn
   def initialize(color)
     @color = color
     @first_turn = true
-    if @color == "black"
-      @symbol = "♟"
-    elsif @color == "white"
-      @symbol = "♙"
-    end
+    @symbol = "♟" if @color == "white"
+    @symbol = "♙" if @color == "black"
+    @mov = 1 if @color == "white"
+    @mov = -1 if @color == "black"
   end
 
   def move_list
@@ -40,11 +39,13 @@ class Pawn
     end
   end
 
-  def movement(start, board)
-    end_position = move_list.map { |move| start[0] + move[0], start[-1] + move[-1] }
+  def self.movement(board, pos = @pos)
+    p pos[0]
+    p pos[1]
+    end_position = board["#{pos[0]}, #{pos[1] + 1}"]
     end_position = @symbol
+    pos = "  "
   end
-
 
 
 end
